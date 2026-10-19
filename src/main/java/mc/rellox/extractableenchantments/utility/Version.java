@@ -12,10 +12,8 @@ public final class Version {
 		server = s.substring(s.lastIndexOf('.') + 1);
 		var bukkit = Bukkit.getBukkitVersion();
 
-		if(bukkit.startsWith("26.2")
-				||bukkit.startsWith("26.1.2")
-				|| bukkit.startsWith("26.1.1")
-				|| bukkit.startsWith("26.1")) version = VersionType.v_26;
+		// 26.x keeps the NMS names used for v_26 (checked against 26.3)
+		if(bukkit.startsWith("26.")) version = VersionType.v_26;
 		else if(server.contains("v1_21_R7")
 				|| bukkit.startsWith("1.21.11-R0.1")) version = VersionType.v_21_7;
 		else if(server.contains("v1_21_R6")
